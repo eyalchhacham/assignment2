@@ -15,7 +15,7 @@ void priorityQueve::max()
 		cout << max.getPriority() << ' ' << max.getData() << endl;
 	}
 	else
-		cout << "structure is empty" << endl;
+		cout << "wrong input" << endl;
 }
 void priorityQueve::deleteMax()
 {
@@ -48,7 +48,7 @@ void priorityQueve::min()
 		cout << min.getPriority() << ' ' << min.getData() << endl;
 	}
 	else
-		cout << "structure is empty";
+		cout << "wrong input";
 }
 void priorityQueve::deleteMin()
 {
@@ -66,7 +66,7 @@ void priorityQueve::deleteMin()
 	}
 	else
 	{
-		cout << "structure is empty";
+		cout << "wrong input";
 	}
 }
 void priorityQueve::createEmpty()
@@ -131,7 +131,7 @@ void priorityQueve::median()
 		cout << median.getPriority() << ' ' << median.getData() << endl;
 	}
 	else {
-		cout << "Invalid action";
+		cout << "wrong input";
 		exit(1);
 	}
 

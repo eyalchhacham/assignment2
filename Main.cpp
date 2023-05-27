@@ -8,6 +8,7 @@ void startAction(char action, priorityQueve& qp, int priority = 0, string data="
 int main()
 {
 	string priorityInput;
+	char ch;
 	int numActions;
 	int i;
 	char action;
@@ -39,7 +40,15 @@ int main()
 			exit(1);
 		}
 		else if (action != 'f')
-			startAction(action,q);
+		{
+			if (std::cin && std::cin.peek() == '\n')
+			startAction(action, q);
+			else
+			{
+				cout << "wront input";
+				exit(1);
+			}
+		}
 		
 		else
 		{
