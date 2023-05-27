@@ -1,12 +1,13 @@
 #include "priorityQueve.h"
+#include <sstream>
 
-
+bool isInteger(const std::string& input); 
 void startAction(char action, priorityQueve& qp, int priority = 0, string data="");
+
 
 int main()
 {
-	
-	
+	string priorityInput;
 	int numActions;
 	int i;
 	char action;
@@ -42,7 +43,15 @@ int main()
 		
 		else
 		{
-			cin >> priority;
+			cin >> priorityInput;
+			if (isInteger(priorityInput)) 
+				 priority = stoi(priorityInput);
+			else {
+				cout << "wront input";
+				exit(1);
+			}
+
+			
 			getline(cin, data);
 			startAction(action,q, priority, data);
 		}
@@ -68,4 +77,9 @@ void startAction(char action, priorityQueve& qp, int priority, string data)
 	default:cout << "wrong input"; exit(1); break;
 
 	}
+}
+bool isInteger(const std::string& input) {
+	std::istringstream iss(input);
+	int value;
+	return (iss >> value) && iss.eof();
 }

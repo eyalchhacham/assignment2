@@ -131,7 +131,7 @@ void priorityQueve::median()
 		cout << median.getPriority() << ' ' << median.getData() << endl;
 	}
 	else {
-		cout << "wrong action";
+		cout << "Invalid action";
 		exit(1);
 	}
 
