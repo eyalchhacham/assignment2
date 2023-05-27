@@ -32,12 +32,12 @@ MinHeap::MinHeap(int max,MaxHeap * maxP)
 }
 MinHeap::~MinHeap()
 {
-	if (allocated && data != nullptr)
+	/*if (allocated && data != nullptr)
 	{
 		delete[] data;
 		data = nullptr;
 		allocated = 0;
-	}
+	}*/
 }
 
 Pair MinHeap::Min()

@@ -120,15 +120,19 @@ void priorityQueve::insert(int priority, string value)
 }
 void priorityQueve::median()
 {
-	if (MaxHeapSmallVals.getHeapSize() < 1)
+	if (MaxHeapSmallVals.getHeapSize() >= 1)
 	{
-		cout << "invalid action";
+		Pair median = MaxHeapSmallVals.Max();
+		cout << median.getPriority() << ' ' << median.getData() << endl;
+	}
+	else if (MaxHeapBigVals.getHeapSize() >= 1)
+	{
+		Pair median = MaxHeapBigVals.Max();
+		cout << median.getPriority() << ' ' << median.getData() << endl;
+	}
+	else {
+		cout << "wrong action";
 		exit(1);
 	}
-	Pair median = MaxHeapSmallVals.Max();
-	int l = MinHeapSmallVals.getHeapSize();
-	int m = MaxHeapBigVals.getHeapSize();
-	int n = MinHeapBigVals.getHeapSize();
-	cout << median.getPriority() << ' ' << median.getData() << endl;
 
 }

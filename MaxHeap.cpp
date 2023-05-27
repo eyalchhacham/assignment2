@@ -37,9 +37,9 @@ MaxHeap::MaxHeap(int max,MinHeap* minP)
 MaxHeap::~MaxHeap()
 {
 
-	if (allocated)
-		delete[] data;
-	allocated = 0;
+	//if (allocated)
+	//	delete[] data;
+	//allocated = 0;
 	
 }
 Pair MaxHeap::Max()

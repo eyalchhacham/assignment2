@@ -1,7 +1,5 @@
 #include "priorityQueve.h"
-#define _CRTDBG_MAP_ALLOC
-#include <stdlib.h>
-#include <crtdbg.h>
+
 
 void startAction(char action, priorityQueve& qp, int priority = 0, string data="");
 
@@ -49,8 +47,7 @@ int main()
 			startAction(action,q, priority, data);
 		}
 	}
-	_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
-	_CrtDumpMemoryLeaks();
+	
 
 	return 0;
 	
