@@ -1,6 +1,9 @@
 #include "MinHeap.h"
 MinHeap::MinHeap(const MinHeap& other)
 {
+	if (allocated==1)
+		delete[]data;
+	
 	maxSize = other.maxSize;
 	HeapSize = other.HeapSize;
 	allocated = 1;
@@ -12,7 +15,8 @@ MinHeap& MinHeap::operator=(const MinHeap& other)
 {
 	if (this != &other)
 	{
-		delete[] data;
+		if(allocated==1)
+			delete[] data;
 		maxSize = other.maxSize;
 		HeapSize = other.HeapSize;
 		allocated = 1;
@@ -32,12 +36,12 @@ MinHeap::MinHeap(int max,MaxHeap * maxP)
 }
 MinHeap::~MinHeap()
 {
-	/*if (allocated && data != nullptr)
+	if (allocated==1)
 	{
 		delete[] data;
-		data = nullptr;
+
 		allocated = 0;
-	}*/
+	}
 }
 
 Pair MinHeap::Min()
@@ -145,8 +149,8 @@ void MinHeap::Delete(int i)
 	}
 
 	int lastIndex = HeapSize - 1;
-	int indexSecHeap = data[i].getIndexSecHeap();
-	(*maxHeap).getPairByIndex(indexSecHeap).setIndexSecHeap(-1);
+	/*int indexSecHeap = data[i].getIndexSecHeap();
+	(*maxHeap).getPairByIndex(indexSecHeap).setIndexSecHeap(-1);*/
 
 	if (i != lastIndex)
 	{

@@ -19,13 +19,13 @@ int main()
 	cin >> numActions;
 	if (numActions <= 0)
 	{
-		cout << "invalid number of actions";
+		cout << "wrong input";
 		exit(1);
 	}
 	cin >> action;
 	if (action != 'e')
 	{
-		cout << "invlid action, must be e function";
+		cout << "wrong input";
 		exit(1);
 	}
 	else
@@ -45,7 +45,7 @@ int main()
 			startAction(action, q);
 			else
 			{
-				cout << "wront input";
+				cout << "wrong input";
 				exit(1);
 			}
 		}
@@ -56,7 +56,7 @@ int main()
 			if (isInteger(priorityInput)) 
 				 priority = stoi(priorityInput);
 			else {
-				cout << "wront input";
+				cout << "wrong input";
 				exit(1);
 			}
 

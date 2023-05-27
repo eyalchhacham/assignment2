@@ -1,7 +1,28 @@
 #include "priorityQueve.h"
 
+void priorityQueve::BigToSmall()
+{
+	if (MaxHeapSmallVals.getHeapSize() < MaxHeapBigVals.getHeapSize())
+	{
+		Pair y = MinHeapBigVals.DeleteMin();
+		MaxHeapBigVals.Delete(y.getIndexSecHeap());
+		MaxHeapSmallVals.insert(y);
+		MinHeapSmallVals.insert(y);
 
+	}
+}
 
+void priorityQueve:: SmallToBIg()
+{
+	if (MaxHeapSmallVals.getHeapSize() > MaxHeapBigVals.getHeapSize() + 1)
+	{
+		Pair z = MaxHeapSmallVals.DeleteMax();
+		MinHeapSmallVals.Delete(z.getIndexSecHeap());
+		MaxHeapBigVals.insert(z);
+		MinHeapBigVals.insert(z);
+
+	}
+}
 void priorityQueve::max()
 {
 	if (MaxHeapBigVals.getHeapSize() >= 1)
@@ -34,6 +55,8 @@ void priorityQueve::deleteMax()
 		MinHeapBigVals.Delete(max.getIndexSecHeap());
 		cout << max.getPriority() << ' ' << max.getData() << endl;
 	}
+	BigToSmall();
+	SmallToBIg();
 }
 void priorityQueve::min()
 {
@@ -68,6 +91,11 @@ void priorityQueve::deleteMin()
 	{
 		cout << "wrong input";
 	}
+
+	BigToSmall();
+	SmallToBIg();
+	
+	
 }
 void priorityQueve::createEmpty()
 {
@@ -82,21 +110,13 @@ void priorityQueve::createEmpty()
 }
 void priorityQueve::insert(int priority, string value)
 {
-
 	Pair x(priority, value, 0);
 	
 		if (MaxHeapSmallVals.getHeapSize()<1||priority > MaxHeapSmallVals.Max().getPriority())
 		{
 			 MaxHeapBigVals.insert(x);
 			 MinHeapBigVals.insert(x);
-			if (MaxHeapSmallVals.getHeapSize() < MaxHeapBigVals.getHeapSize())
-			{
-				Pair y = MinHeapBigVals.DeleteMin();
-				MaxHeapBigVals.Delete(y.getIndexSecHeap());
-				MaxHeapSmallVals.insert(y);
-				MinHeapSmallVals.insert(y);
-				
-			}
+			 BigToSmall();
 		}
 
 		else
@@ -104,19 +124,10 @@ void priorityQueve::insert(int priority, string value)
 		 MaxHeapSmallVals.insert(x);
 		 MinHeapSmallVals.insert(x);
 
-			if (MaxHeapSmallVals.getHeapSize() > MaxHeapBigVals.getHeapSize() + 1)
-			{
-				Pair z = MaxHeapSmallVals.DeleteMax();
-				MinHeapSmallVals.Delete(z.getIndexSecHeap());
-				 MaxHeapBigVals.insert(z);
-				 MinHeapBigVals.insert(z);
-				
-			}
+		 SmallToBIg();
 		}
 	
 	
-
-
 }
 void priorityQueve::median()
 {

@@ -1,6 +1,8 @@
 #include "MaxHeap.h"
 MaxHeap::MaxHeap(const MaxHeap& other)
 {
+	if (allocated==1)
+		delete[]data;
 	maxSize = other.maxSize;
 	HeapSize = other.HeapSize;
 	allocated = 1;
@@ -12,7 +14,8 @@ MaxHeap& MaxHeap::operator=(const MaxHeap& other)
 {
 	if (this != &other)
 	{
-		delete[] data;
+		if(allocated==1)
+			delete[] data;
 		maxSize = other.maxSize;
 		HeapSize = other.HeapSize;
 		allocated = 1;
@@ -37,9 +40,9 @@ MaxHeap::MaxHeap(int max,MinHeap* minP)
 MaxHeap::~MaxHeap()
 {
 
-	//if (allocated)
-	//	delete[] data;
-	//allocated = 0;
+	if (allocated==1)
+		delete[] data;
+	allocated = 0;
 	
 }
 Pair MaxHeap::Max()
@@ -144,8 +147,7 @@ void MaxHeap::Delete(int i)
 	}
 
 	int lastIndex = HeapSize - 1;
-	int indexSecHeap = data[i].getIndexSecHeap();
-	(*minHeap).getPairByIndex(indexSecHeap).setIndexSecHeap(-1);
+	
 
 	if (i != lastIndex)
 	{

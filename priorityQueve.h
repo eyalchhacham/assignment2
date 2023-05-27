@@ -19,6 +19,8 @@ public:
 	void createEmpty();
 	void insert(int priority, string value);
 	void median();
+	void SmallToBIg();
+	void BigToSmall();
 	
 
 };
