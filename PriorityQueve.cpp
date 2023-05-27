@@ -10,7 +10,7 @@ void priorityQueve::BigToSmall()
 		MinHeapSmallVals.insert(y);
 
 	}
-}
+} 
 
 void priorityQueve:: SmallToBIg()
 {
@@ -22,7 +22,7 @@ void priorityQueve:: SmallToBIg()
 		MinHeapBigVals.insert(z);
 
 	}
-}
+} 
 void priorityQueve::max()
 {
 	if (MaxHeapBigVals.getHeapSize() >= 1)

@@ -6,7 +6,7 @@ class MinHeap
 {
 private:
 	Pair* data;
-	MaxHeap* maxHeap;
+	MaxHeap* maxHeap; //pointer to copy max heap
 	int maxSize;
 	int HeapSize;
 	int allocated;
@@ -25,9 +25,9 @@ public:
 	Pair DeleteMin();
 	int insert(Pair& item);
 	int getHeapSize();
-	void Delete(int i);
+	void Delete(int i); // fun to delete pair by index
 	void setMaxPointer(MaxHeap* p);
-	Pair& getPairByIndex(int i);
+	Pair& getPairByIndex(int i); //fun to get the pair by index in the copy Max heap
 
 };
 

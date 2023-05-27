@@ -19,8 +19,8 @@ public:
 	void createEmpty();
 	void insert(int priority, string value);
 	void median();
-	void SmallToBIg();
-	void BigToSmall();
+	void SmallToBIg(); //fun to move max Item in Small heaps to big heaps (if needed)
+	void BigToSmall(); //fun to move min Item in Big heaps to small heaps (if needed)
 	
 
 };

@@ -81,6 +81,7 @@ void MaxHeap::FixMaxHeap(int node)
 
 	if (max != node)
 	{
+		//update index saver in the copy Min heap
 		(*minHeap).getPairByIndex(data[node].getIndexSecHeap()).setIndexSecHeap(max);
 		(*minHeap).getPairByIndex(data[max].getIndexSecHeap()).setIndexSecHeap(node);
 		swap(&data[node], &data[max]);
@@ -105,7 +106,7 @@ Pair MaxHeap::DeleteMax()
 		HeapSize--;
 		return max;
 	}
-
+	//update index saver in the copy Max heap
 	(*minHeap).getPairByIndex(data[HeapSize - 1].getIndexSecHeap()).setIndexSecHeap(0);
 	data[0] = data[HeapSize - 1];
 	
@@ -129,6 +130,7 @@ int MaxHeap::insert(Pair& item)
 	{
 		data[i] = data[Parent(i)];
 		int parentIndexSecHeap = data[Parent(i)].getIndexSecHeap();
+		//update index saver in the copy Max heap
 		(*minHeap).getPairByIndex(parentIndexSecHeap).setIndexSecHeap(i);
 		i = Parent(i);
 	}
@@ -151,6 +153,7 @@ void MaxHeap::Delete(int i)
 
 	if (i != lastIndex)
 	{
+		//update index saver in the copy Max heap
 		(*minHeap).getPairByIndex(data[i].getIndexSecHeap()).setIndexSecHeap(lastIndex);
 		(*minHeap).getPairByIndex(data[lastIndex].getIndexSecHeap()).setIndexSecHeap(i);
 		swap(&data[i], &data[lastIndex]);
